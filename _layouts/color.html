@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% if page.color %}{% assign color = page.color %}{% else %}{% assign color = "white" %}{% endif %}
+
+<head>
+    <title>{{color}}</title>
+    <meta id="tile-color" name="msapplication-TileColor" content="{{color}}">
+    <meta id="theme-color" name="theme-color" content="{{color}}">
+    <link id="favicon" rel="icon" type="image/png">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: {{color}};
+            touch-action: manipulation;
+            user-select: none;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var color = "{{color}}";
+
+        {{content}}
+
+        var favicon = document.getElementById('favicon');
+        var canvas = document.createElement('canvas');
+        var faviconSize = 16;
+        canvas.width = faviconSize;
+        canvas.height = faviconSize;
+
+        var context = canvas.getContext('2d');
+        context.fillStyle = color;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        favicon.href = canvas.toDataURL('image/png');
+
+
+    </script>
+
+</body>
+
+</html>

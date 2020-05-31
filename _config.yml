@@ -1,0 +1,21 @@
+title: Color
+url: https://color.app.5ls.de
+
+collections:
+  color:
+    output: true
+    permalink: /:name
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "color"
+    values:
+      layout: "color"
+ 
+
+exclude:
+  - CNAME
+
+timezone: Europe/Berlin
