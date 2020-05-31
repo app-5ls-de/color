@@ -26,8 +26,8 @@ if (path){
 const ishexcolor = RegExp("^#[0-9A-F]{6}$","i");
 if (ishexcolor.test(hex)) {
     color=hex
-    document.getElementById("tile-color").content=color
-    document.getElementById("theme-color").content=color
+    document.getElementById("tile-color").setAttribute("content", color);
+    document.getElementById("theme-color").setAttribute("content", color);
     document.title=color
     document.body.style.backgroundColor=color
 } else {
