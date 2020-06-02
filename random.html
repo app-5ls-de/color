@@ -1,10 +1,23 @@
 ---
+layout: main
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <title>random</title>
-  <script>
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    window.location.href = "/#" + randomColor
-  </script>
-</html>
+<script>
+  /* var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16); */
+
+  var names = Object.keys(colornames)
+  var randomColor = names[names.length * Math.random() << 0]; // "x << 0" is equivalent to "Math.floor(x)"
+
+  colorize(randomColor);
+
+  var hash = window.location.hash.substring(1)
+
+  if (hash) {
+    seconds = parseInt(hash)
+    if (!Number.isInteger(seconds)) {
+      window.location.href = "/random"
+    }
+
+    setInterval(function () { colorize(names[names.length * Math.random() << 0]); }, seconds * 1000)
+
+  }
+</script>

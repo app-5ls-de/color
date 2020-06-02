@@ -1,3 +1,18 @@
 ---
-layout: onthefly
+layout: main
 ---
+<script>
+    var hash = window.location.hash
+
+    if (hash) {
+        if (isColor(hash)) {
+            colorize(hash);
+        } else if (isColor(hash.substring(1))) {
+            colorize(hash.substring(1));
+        } else {
+            window.location.href = "/"
+        }
+    } else {
+        colorize("white")
+    }
+</script>

@@ -1,3 +1,20 @@
 ---
-layout: onthefly
+layout: main
 ---
+<script>
+    var hash = window.location.hash
+    if (hash) {
+        window.location.href = "/"
+    }
+
+
+    var path = window.location.pathname.substring(1);
+
+    if (isColor("#" + path)) {
+        colorize("#" + path);
+    } else if (isColor(path)) {
+        colorize(path);
+    } else {
+        window.location.href = "/"
+    }
+</script>

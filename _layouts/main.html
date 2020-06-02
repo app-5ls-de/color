@@ -26,24 +26,16 @@
 </head>
 
 <body>
+    <script src="/main.js"></script>
+
+    {% if page.color %} 
     <script>
-        var color = "{{color}}";
-
-        {{content}}
-
-        var favicon = document.getElementById('favicon');
-        var canvas = document.createElement('canvas');
-        var faviconSize = 16;
-        canvas.width = faviconSize;
-        canvas.height = faviconSize;
-
-        var context = canvas.getContext('2d');
-        context.fillStyle = color;
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        favicon.href = canvas.toDataURL('image/png');
-
-
+        colorize("{{ page.color }}")
     </script>
+    {% endif %}
+
+    {{content}}
+
 
 </body>
 
