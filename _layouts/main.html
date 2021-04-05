@@ -4,7 +4,7 @@
     {% if page.color %}{% assign color = page.color %}{% else %}{% assign color = "white" %}{% endif %}
 
 <head>
-    <title>{{color}}</title>
+    <title>{% if page.title %}{{page.title}}{% else %}{{color}}{% endif %}</title>
     <meta id="tile-color" name="msapplication-TileColor" content="{{color}}">
     <meta id="theme-color" name="theme-color" content="{{color}}">
     <link id="favicon" rel="icon" type="image/png">
@@ -21,6 +21,12 @@
             user-select: none;
             height: 100vh;
             width: 100vw;
+        }
+
+        .text {
+            margin: auto;
+            width: 80vw;
+            font-size: 2rem;
         }
     </style>
 </head>
